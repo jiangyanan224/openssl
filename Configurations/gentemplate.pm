@@ -437,7 +437,8 @@ sub dolib {
             if @foreign_objs && $debug_rules;
         $self->emit('obj2lib',
              lib => $lib, attrs => { %attrs },
-             objs => [ @objs, @foreign_objs ]);
+             objs => [ @objs, @foreign_objs ],
+             deps => [ @sourcedeps ]);
         foreach (@objs) {
             $self->doobj($_, $lib, intent => "lib", attrs => { %attrs });
         }
